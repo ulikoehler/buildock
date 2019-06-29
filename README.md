@@ -48,6 +48,12 @@ buildock ulikoehler/ubuntu-gcc-make make
 cmake
 This command is mostly equivalent to just running `make` locally, however using the *docker*-based approach you don't have to deal with different compiler/make versions on different host systems producing.
 
+By default, *buildock* does not enable interactive mode (`docker run --interactive/-i`) or allocate a pseudo-TTY (`docker run --tty/-t`) to facilitate easy automated builds in non-TTY environments like Gitlab runners.
+In case you need to run in **interactive mode** (e.g. if you need to interact with the program being run), use this syntax:
+```sh
+buildock -it ulikoehler/ubuntu-gcc-make make
+```
+
 ## How does it work`
 
 `buildock` creates a new container using the given imamage an mounts the current working directory (`$(pwd)`) to `/app` on said container. It then runs the user-defined command on the container (e.g. `make`).
