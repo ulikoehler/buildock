@@ -1,5 +1,5 @@
 #!/bin/sh
-export NAME=ulikoehler/ubuntu-gcc-cmake-boost
+export NAME=ulikoehler/ubuntu-opencascade
 export VERSION=latest
 docker build -t ${NAME}:${VERSION} .
 docker push ${NAME}:${VERSION}
