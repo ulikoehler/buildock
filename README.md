@@ -11,6 +11,14 @@ Do you need to make your builds (e.g. using *make* and *cmake*) or software (e.g
 
 ## How to install
 
+**If you just want to try it out:**
+```sh
+git clone https://github.com/ulikoehler/buildock
+source buildock/buildock.sh
+```
+
+**Permanent installation:**
+
 For `bash`:
 ```sh
 curl -s https://raw.githubusercontent.com/ulikoehler/buildock/master/buildock.sh >> ~/.bashrc
