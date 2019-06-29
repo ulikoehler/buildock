@@ -38,7 +38,7 @@ This function will be automatically loaded once you restart your shell. To load 
 Usage:
 
 ```
-buildock <image name> <command(s)>
+buildock [docker run argument(s)] <image name> <command(s)>
 ```
 
 Example: To compile a C++ application using `make`:
@@ -53,6 +53,8 @@ In case you need to run in **interactive mode** (e.g. if you need to interact wi
 ```sh
 buildock -it ulikoehler/ubuntu-gcc-make make
 ```
+
+
 
 ## How does it work`
 
