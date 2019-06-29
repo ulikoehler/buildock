@@ -7,5 +7,5 @@ function buildock {
     # Actual buildock code
     IMAGE=$1
     shift
-    docker run --user $(id -u):$(id -g) -v "$(pwd):/app" -w "/app" -it ${IMAGE} $@
+    docker run --user $(id -u):$(id -g) -v "$(pwd):/app" -w "/app" --rm -it ${IMAGE} $@
 }
