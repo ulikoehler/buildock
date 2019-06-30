@@ -84,11 +84,9 @@ npm ERR! If you believe this might be a permissions issue, please double-check t
 npm ERR! permissions of the file and its containing directories, or try running
 npm ERR! the command again as root/Administrator (though this is not recommended).
 ```
-unless you use an image based on the official `node` images. The reason for this is that the current user's ID does not have a home directory on the container and therefore npm tries to access `/.npm` for its cache, which it can't create.
+The reason for this is that the current user's ID does not have a home directory on the container and therefore npm tries to access `/.npm` for its cache, which it can't create.
 
-Known ways to work around this are:
- - Use `node:12` or an image based on it: `buildock node:12 npm install` works.
- - Use `-e HOME=/tmp` to define a home dir for the user: `buildock ulikoehler ubuntu-opencascade-node:12 npm install`
+**Workaround:** Use `-e HOME=/tmp` to define a home dir for the user: `buildock -e HOME=/tmp ulikoehler ubuntu-opencascade-node:12 npm install`
 
 ## How does it work`
 
