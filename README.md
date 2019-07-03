@@ -5,7 +5,7 @@ Do you need to make your builds (e.g. using *make* and *cmake*) or software (e.g
 
 ## What does it do?
 
-*buildock* is for your. *buildock* provides two sets of tools:
+*buildock* provides two sets of tools:
  - A shell function `buildock` that wraps `docker` to facilitate easy local builds
  - Several pre-built docker images that have software like `make` and `gcc`. These images are just for convenience!
 
