@@ -86,7 +86,7 @@ npm ERR! the command again as root/Administrator (though this is not recommended
 ```
 The reason for this is that the current user's ID does not have a home directory on the container and therefore npm tries to access `/.npm` for its cache, which it can't create.
 
-**Workaround:** Use `-e HOME=/tmp` to define a home dir for the user: `buildock -e HOME=/tmp ulikoehler ubuntu-opencascade-node:12 npm install`
+**Workaround:** Use `-e HOME=/tmp` to define a home dir or update buildock since this is the default in more recent versions.
 
 ## How does it work`
 

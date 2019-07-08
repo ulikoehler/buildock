@@ -5,5 +5,5 @@ function buildock {
     # No arguments warning
     if [[ $# -eq 0 ]] ; then echo "Usage: buildock [docker run argument(s)] <image name> <command(s)>" ; exit 1 ; fi
     # Actual buildock code
-    docker run --user $(id -u):$(id -g) -v "$(pwd):/app" -w "/app" --rm $@
+    docker run -e HOME=/tmp --user $(id -u):$(id -g) -v "$(pwd):/app" -w "/app" --rm $@
 }
