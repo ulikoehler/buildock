@@ -3,6 +3,8 @@
 
 Do you need to make your builds (e.g. using *make* and *cmake*) or software (e.g. using *node* or *python3*) to reliably work on a wide range of different host systems, but you still want to keep your actual application's files locally on the host system?
 
+`buildock` creates a new docker container from an image and mounts the current working directory ($(pwd)) to `/app` in the container. This enables reliable builds (e.g. using `make` and `cmake`) or the use of specific versions of software (e.g. using `node` or `python3`) working on a wide range of host systems, but **keeps your actual files locally on the host system**.
+
 ## What does it do?
 
 *buildock* provides two sets of tools:
