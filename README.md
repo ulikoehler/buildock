@@ -23,12 +23,12 @@ source buildock/buildock.sh
 
 For `bash`:
 ```sh
-curl -s https://techoverflow.net/install-buildock.sh >> ~/.bashrc
+curl -fsSL https://techoverflow.net/install-buildock.sh >> ~/.bashrc
 ```
 
 For `zsh`:
 ```sh
-curl -s https://techoverflow.net/install-buildock.sh >> ~/.zshrc
+curl -fsSL https://techoverflow.net/install-buildock.sh >> ~/.zshrc
 ```
 
 This will add a [`buildock` function](https://github.com/ulikoehler/buildock/blob/master/buildock.sh) to your `~/.bashrc` or  `~/.zshrc`.
