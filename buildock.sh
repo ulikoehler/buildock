@@ -10,3 +10,6 @@ function buildock {
         docker run -e HOME=/tmp --user $(id -u):$(id -g) -v "$(pwd):/app" -w "/app" --rm $@ 
     fi
 }
+
+# Export function to sub-shells
+export -f buildock
