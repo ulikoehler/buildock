@@ -35,6 +35,12 @@ This will add a [`buildock` function](https://github.com/ulikoehler/buildock/blo
 
 This function will be automatically loaded once you restart your shell. To load `buildock` in already active shells, run `source ~/.bashrc` or `source ~/.zshrc`, else you'll see `command not found: buildock`
 
+One-liner to activate in the current shell (not persistent!)
+
+```sh
+source /dev/stdin < <(curl -fsSL https://techoverflow.net/install-buildock.sh)
+```
+
 ## How to use
 
 Usage:
