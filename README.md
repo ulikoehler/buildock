@@ -23,12 +23,12 @@ source buildock/buildock.sh
 
 For `bash`:
 ```sh
-curl -fsSL https://techoverflow.net/install-buildock.sh >> ~/.bashrc
+curl -fsSLhttps://raw.githubusercontent.com/ulikoehler/buildock/master/buildock.sh >> ~/.bashrc
 ```
 
 For `zsh`:
 ```sh
-curl -fsSL https://techoverflow.net/install-buildock.sh >> ~/.zshrc
+curl -fsSL https://raw.githubusercontent.com/ulikoehler/buildock/master/buildock.sh >> ~/.zshrc
 sed -i -e 's/export -f buildock/#export -f buildock/g' ~/.zshrc
 ```
 
