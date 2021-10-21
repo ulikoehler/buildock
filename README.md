@@ -1,5 +1,5 @@
 # buildock
-Tiny shell script to encapsulated builds in docker. No local dependency installation, 100% reproducable.
+Tiny shell script encapsulates builds in docker. No dependency installation for the build. 100% reproducable.
 
 Make your builds (e.g. using *make* and *cmake*) or software (e.g. using *node* or *python3*) reliably work on a wide range of different host systems. The build is in docker, but your actual application's files are locally on the host system ad can be used there.
 
