@@ -1,28 +1,25 @@
 # buildock
 Tiny shell script encapsulates builds in docker. No dependency installation for the build. 100% reproducable.
 
-Make your builds (e.g. using *make* and *cmake*) or software (e.g. using *node* or *python3*) reliably work on a wide range of different host systems. The build is in docker, but your actual application's files are locally on the host system ad can be used there.
+Different software or compiler versions like *make* vs. *cmake*, *node*, *python2*, *python3* lead to problems when building. Builddock makes complex builds hassle free and reliably work on a wide range of different host systems. The build is in docker, but your actual application's files are locally on the host system ad can be used there.
 
 
+## Try it
 ```sh
+# add builddock to your current shell - not persistent!
+source /dev/stdin < <(curl -fsSL https://techoverflow.net/install-buildock.sh)
+
 # Example: compile a C++ application within the docker image
+# run this in your application folder where you want to build
 buildock ulikoehler/ubuntu-gcc-make make
 ```
 
 ## Install
-The [`buildock` function](https://github.com/ulikoehler/buildock/blob/master/buildock.sh) has to be added to your `~/.bashrc` or  `~/.zshrc`.
-
-**Try it out:** Clone docker building environments, add builddock temporarely to your shell
-```sh
-git clone https://github.com/ulikoehler/buildock
-source buildock/buildock.sh
-```
-
-**Permanent installation:** Add the function to your shell
+Add [`buildock` function](https://github.com/ulikoehler/buildock/blob/master/buildock.sh) permanent to shell.
 
 For `bash`:
 ```sh
-curl -fs SLhttps://raw.githubusercontent.com/ulikoehler/buildock/master/buildock.sh >> ~/.bashrc
+curl -fsSL https://raw.githubusercontent.com/ulikoehler/buildock/master/buildock.sh >> ~/.bashrc
 ```
 
 For `zsh`:
@@ -31,33 +28,35 @@ curl -fsSL https://raw.githubusercontent.com/ulikoehler/buildock/master/buildock
 sed -i -e 's/export -f buildock/#export -f buildock/g' ~/.zshrc
 ```
 
-
 This function will be automatically loaded once you restart your shell. To load `buildock` in already active shells, run `source ~/.bashrc` or `source ~/.zshrc`, else you'll see `command not found: buildock`
 
-One-liner to activate in the current shell (not persistent!)
-
-```sh
-source /dev/stdin < <(curl -fsSL https://techoverflow.net/install-buildock.sh)
-```
 
 ## How to use
 
 ```sh
+# general schema
 buildock [docker run argument(s)] <image name> <command(s)>
 ```
-
-Example: To compile a C++ application using `make`:
 ```sh
+# Examples
+
+# Compile a C++ application using `make`
 buildock ulikoehler/ubuntu-gcc-make make
+
+TODO: add more examples for pre-built docker images
+
+
 ```
-cmake
-This command is mostly equivalent to just running `make` locally, however using the *docker*-based approach you don't have to deal with different compiler/make versions on different host systems producing.
+
+
+```sh
+# interative mode
+buildock -it ulikoehler/ubuntu-gcc-make make
+```
 
 By default, *buildock* does not enable interactive mode (`docker run --interactive/-i`) or allocate a pseudo-TTY (`docker run --tty/-t`) to facilitate easy automated builds in non-TTY environments like Gitlab runners.
 In case you need to run in **interactive mode** (e.g. if you need to interact with the program being run), use this syntax:
-```sh
-buildock -it ulikoehler/ubuntu-gcc-make make
-```
+
 
 
 ## How to make custom *buildock* images
