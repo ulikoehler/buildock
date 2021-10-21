@@ -1,7 +1,7 @@
 # buildock
 Tiny shell script encapsulates builds in docker. No dependency installation for the build. 100% reproducable.
 
-Different software or compiler versions like *make* vs. *cmake*, *node*, *python2*, *python3* lead to problems when building. Builddock makes complex builds hassle free and reliably work on a wide range of different host systems. The build is in docker, but your actual application's files are locally on the host system ad can be used there.
+Different software or compiler versions like *make* vs. *cmake*, *node*, *python2*, *python3* lead to problems when building. Builddock makes complex builds hassle free and reliably work on a wide range of different host systems. The build is in docker, but your actual application's files are locally on the host system where they can be used.
 
 
 ## Try it
@@ -32,7 +32,6 @@ This function will be automatically loaded once you restart your shell. To load 
 
 
 ## How to use
-
 ```sh
 # general schema
 buildock [docker run argument(s)] <image name> <command(s)>
@@ -45,22 +44,17 @@ buildock ulikoehler/ubuntu-gcc-make make
 
 TODO: add more examples for pre-built docker images
 
-
 ```
-
-
 ```sh
 # interative mode
 buildock -it ulikoehler/ubuntu-gcc-make make
 ```
-
 By default, *buildock* does not enable interactive mode (`docker run --interactive/-i`) or allocate a pseudo-TTY (`docker run --tty/-t`) to facilitate easy automated builds in non-TTY environments like Gitlab runners.
 In case you need to run in **interactive mode** (e.g. if you need to interact with the program being run), use this syntax:
 
 
 
 ## How to make custom *buildock* images
-
 Just use any docker container with the software you need installed. The only requirement is that `/app` is not used for anything relevant in the image, since `/app` is where `buildock` will mount the current directory to.
 
 
@@ -74,10 +68,8 @@ Additionally it ensures that the `docker` container runs under the current user 
 
 
 ## Tips, tricks & limitation
-
 #### npm install fails
-
-```
+``` sh
 buildock ulikoehler/ubuntu-opencascade-node:12 npm install
 ```
 
