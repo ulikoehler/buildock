@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf bup par2cndline # Remove any old versions that might be present
+rm -rf bup # Remove any old versions that might be present
 git clone -b 0.33 --depth 1 https://github.com/bup/bup
 export NAME=ulikoehler/bup
 export VERSION=0.33-alpine3.17
