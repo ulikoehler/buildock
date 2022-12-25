@@ -4,8 +4,8 @@ RUN apk add bash make g++ python3-dev git automake autoconf par2cmdline
 # Copy bup clone (done ahead of time in build.sh)
 COPY ./bup /app/bup
 # Install bup
-RUN cd /app/bup && ./configure && make -j4 install PREFIX=/usr/bin
+RUN cd /app/bup && ./configure && make -j4 install PREFIX=/usr
 # Cleanup: remove bup clone
-RUN rm -rf /app/bup /app/par2cmdline
+RUN rm -rf /app/bup
 WORKDIR /app
 CMD [ "/usr/bin/bup" ]
