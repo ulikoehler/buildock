@@ -7,4 +7,4 @@ RUN apk --no-cache add dropbear &&\
     adduser -s /bin/sh -D bup --uid 1111 --home /home/bup &&\
     chown -R bup:bup /home/bup
 
-CMD ["/bin/sh", "-c", "chown -R bup:bup /home/bup/.ssh ; chmod u+rwx,g-rwx,o-rwx /home/bup/.ssh ; chmod u+rwx,g-rwx,o-rwx /home/bup/.ssh/authorized_keys ; /usr/sbin/dropbear -RFEwgsjk -G bup -p ${SSH_PORT}"]
+CMD ["/bin/sh", "-c", "chown -R bup:bup /bup ; chmod -R u+rw,g+rw,o+r /bup ; chown -R bup:bup /home/bup/.ssh ; chmod u+rwx,g-rwx,o-rwx /home/bup/.ssh ; chmod u+rwx,g-rwx,o-rwx /home/bup/.ssh/authorized_keys ; /usr/sbin/dropbear -RFEwgsjk -G bup -p ${SSH_PORT}"]
