@@ -3,5 +3,5 @@ RUN apt update && apt -y install cmake cmake-extras && rm -rf /var/lib/apt/lists
 ENV DEBIAN_FRONTEND=noninteractive
 
 # xvfb-run can be used to run GUI applications like scribus in a headless environment
-RUN apt update && apt install -y scribus xvfb && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y scribus xvfb python3 python3-yaml && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
